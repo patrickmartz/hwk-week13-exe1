@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam 3</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+h1 {
+    font-family: 'Lobster', cursive;
+    font: 55px;
+    text-align: left;
+    color: black;
+}
+    body{
+        background: linear-gradient(to right, rgb(46, 46, 49) 0%, rgb(226, 226, 217) 100%);
+        color: black;
+    }
+
+    .tableclass {
+        border: solid black 5px;
+    }
+
+    img{
+        width: 350px;
+        height: 500px;
+        border-radius: 5rem;
+        width: 40rem;
+        height: 25rem;
+    }
+
+
+    a:link, a:visited{
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+    }
+
+</style>
+<body>
+    
+
+    <table class="tableclass">
+    <tr>
+    <td>
+        <h1>Hotel Charges</h1>
+
+        <div><strong>Input number of nights, nightly charge, room service charge, telephone charge and miscellaneous charges to compute room<br>
+                    charges, additional charges, subtotal, tax and total charges for your stay at the hotel.
+        </strong></div>
+        
+        <P></P>
+
+    <form name="theform">
+    
+    <table>
+        <tr>
+            <td rowspan="15"><img src="hotel.jpg" alt="picture of hotel"></td>
+        </td>
+    <tr><td><strong>Room Charges:</strong></td></tr>
+
+    </td>
+    <td>Nights:</td>
+    <td><input name="nightsfm" size="10"><br></td>
+    </tr>
+    <tr>
+    <td>Nightly Charge:</td>
+    <td><input name="nightlychargefm" size="10"><br></td>
+    </tr>
+
+    <tr><td><strong>Additional Charges:</strong></td></tr>
+
+    <tr>
+    <td>Room Service:</td>
+    <td><input name="roomservicesfm" size="10"><br></td>
+    </tr>
+
+    <tr>
+    <td>Telephone:</td>
+    <td><input name="telephonefm" size="10"><br></td>
+    </tr>
+
+    <tr>
+    <td>Miscellaneous:</td>
+    <td><input name="Miscellaneousfm" size="10"><br></td>
+    </tr>
+
+    <tr><td><strong>Total Charges:</strong></td></tr>
+
+    <tr>
+    <td>Room Charges:</td>
+    <td><input name="roomchargesfm" size="10"><br></td>
+    </tr>
+    
+    <tr>
+    <td>Additional Charges:</td>
+    <td><input name="additionalchargesfm" size="10"><br></td>
+    </tr>
+    
+    <tr>
+    <td>Subtotal:</td>
+    <td><input name="subtotalfm" size="10"><br></td>
+    </tr>
+
+    <tr>
+        <td>Tax (8.25%):</td>
+        <td><input name="taxfm" size="10"><br></td>
+        </tr>
+
+        <tr>
+            <td>Total Charges:</td>
+            <td><input name="totalchargesfm" size="10"><br></td>
+            </tr>
+
+
+            <td>
+                <input type="button" name="calc" value="calculate" onclick="calculate();">
+                <input type="button" name="clear" value="clear" onclick="clearinfo();">
+            </td>
+        </tr>
+
+
+
+    
+
+    </table>
+    </form>
+
+    </td>
+    </tr>
+    </table>
+
+    <script>
+        // declare the calculate function
+        function calculate() {
+            //declare the variables
+            var nights
+            var nightlycharge
+
+            var roomservice
+            var telephone
+            var miscellaneous
+
+            var roomcharges
+            var additionalcharges
+            var subtotal
+            var tax
+            var totalcharges
+
+             // Get the values from the text fields
+             nights = parseInt(document.theform.nightsfm.value);
+             nightlycharge = parseFloat(document.theform.nightlychargefm.value);
+             roomservice = parseFloat(document.theform.roomservicefm.value);
+             telephone = parseFloat(document.theform.telephonefm.value);
+             miscellaneous = parseFloat(document.theform.miscellaneousfm.value);
+             roomcharges = parseFloat(document.theform.roomchargesfm.value);
+             additionalcharges = parseFloat(document.theform.additionalchargesfm.value);
+             subtotal = parseFloat(document.theform.subtotalfm.value);
+             tax = parseFloat(document.theform.taxfm.value);
+             totalcharges = parseFloat(document.theform.totalchargesfm.value);
+             
+             // Calculate
+             roomcharges = parseFloat(nights * nightlycharge);
+             additionalcharges = parseFloat(roomservice + telephone + miscellaneous)
+             subtotal = parseFloat(roomcharges + additionalcharges)
+
+             tax = parseFloat((roomcharges + additionalcharges) * .0825);
+            total = parseFloat(subtotal + tax)
+
+            }
+
+            //declare the CLEAR function
+    function clearinfo(){
+        document.theform.nightsfm.value = " ";
+        document.theform.nightlychargefm.value = " ";
+        document.theform.roomservicefm.value = " ";
+        document.theform.telephonefm.value = " ";
+        document.theform.miscellaneousfm.value = " ";
+        document.theform.roomchargesfm.value = " ";
+        document.theform.additionalchargesfm.value = " ";
+        document.theform.subtotalfm.value = " ";
+        document.theform.taxfm.value = " ";
+        document.theform.totalfm.value = " ";
+
+        document.theform.nightsfm.focus();
+    }
+
+
+
+    </script>
+    
+    <p></p>
+
+<a href="http://csnet.southtexascollege.edu/localuser/pmartinez_6381/">Go Back To Homepage</a><br>
+<strong>Patricio Martinez Jr</strong>
+</body>
+</html>
